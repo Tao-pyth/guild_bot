@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!DOCTYPE profile[
+  <!ELEMENT plofile>
+    <!ELEMENT plof_name>
+    <!ELEMENT plof_type>
+    <!ELEMENT plof_name>
+    <!ELEMENT plof_name>
+    <!ELEMENT plof_name>
+  <!ELEMENT plof_BOT_data>
+
+]>
+
+<plofile id="001" code="x_010824">
+  <plof_name>モルフォ<plof_name>
+  <plof_type>2<plof_type>
+  <
