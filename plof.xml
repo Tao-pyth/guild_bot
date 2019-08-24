@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <!DOCTYPE profile[
+<!ELEMENT plof>
   <!ELEMENT plofile>
     <!ELEMENT plof_name>
     <!ELEMENT plof_type>
-    <!ELEMENT plof_name>
-    <!ELEMENT plof_name>
-    <!ELEMENT plof_name>
+    <!ELEMENT plof_birth>
+    <!ELEMENT plof_code>
+    <!ELEMENT plof_author>
   <!ELEMENT plof_BOT_data>
-
+    <!ELEMENT bot_birth>
+    <!ELEMENT last_modified>
+    <!ELEMENT Ver>
 ]>
-
-<plofile id="001" code="x_010824">
-  <plof_name>モルフォ<plof_name>
-  <plof_type>2<plof_type>
-  <
+<plof>
+  <plofile id="001" code="t1908mrp">
+    <plof_name>モルフォ</plof_name>
+    <plof_type>2</plof_type>
+    <plof_birth>20190824</plof_birth>
+    <plof_code>α_0ω0_morpho</plof_code>
+    <plof_author>tao</plof_auther>
+  </plofile>
+  <plof_BOT_data>
+    <bot_birth></bot_birth>
+    <last_modified></last_modified>
+    <Ver>0</Ver>
+  </plof_BOT_data>
