@@ -12,6 +12,9 @@ client = discord.Client()
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
+    CHANNEL_ID = 614709311695880195
+    channel = client.get_channel(CHANNEL_ID)
+    await channel.send("こんにちわ。本日の業務を開始します")
 
 # メッセージ受信時に動作する処理
 @client.event
@@ -19,9 +22,15 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '/neko':
-        await message.channel.send('にゃーん')
+    if message.content == '/cleanup':
+        if message.author.guild_permissions.administrator:
+            await message.channel.purge()
+            await message.channel.send('塵一つ残らないね！')
+        else:
+            await message.channel.send('何様のつもり？')
+    await message.channel.send(message.content)
+    await client.logout()
+    exit()
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
