@@ -38,10 +38,10 @@ class LOG:
         time_msg = self.TIME + ", " +self.file + ", " + str(self.msg_num) +", "
         if(type==1):
             system_msg += time_msg
-            system_msg += "[chk-" + str(self.msg_chk) + "], " + self.err_msg + "\n"
+            system_msg += "[chk-" + str(self.msg_chk) + "], " + str(self.err_msg) + "\n"
         elif(type==2):
             system_msg += time_msg
-            system_msg += "[chk-" + str(self.msg_chk) + "], " + self.err_msg + "\n"
+            system_msg += "[chk-" + str(self.msg_chk) + "], " + str(self.err_msg) + "\n"
         else:
             self.msg_err += 1
             system_msg += time_msg
@@ -57,7 +57,7 @@ class LOG:
         self.msg_err += 1
         time_msg = self.TIME + ", " +self.file + ", " + str(self.msg_num) +", "
         system_msg = time_msg
-        system_msg += "[err-" + str(self.msg_err) + "]," + self.err_msg + "\n"
+        system_msg += "[err-" + str(self.msg_err) + "]," + str(self.err_msg) + "\n"
         with open(self.log_text, mode='a') as f:
             f.write(system_msg)
 
@@ -69,6 +69,19 @@ class LOG:
         self.msg_info += 1
         time_msg = self.TIME + ", " +self.file + ", " + str(self.msg_num) +", "
         system_msg = time_msg
-        system_msg += "[info-" + str(self.msg_err) + "], " + self.err_msg + "\n"
+        system_msg += "[info-" + str(self.msg_err) + "], " + str(self.err_msg) + "\n"
+        with open(self.log_text, mode='a') as f:
+            f.write(system_msg)
+
+    def SQL(self, err_msg):
+        os.chdir(os.path.dirname(self.dir))
+        self.TIME = datetime.datetime.today().strftime("%H:%M:%S")
+        self.msg_num += 1
+        self.err_msg = err_msg
+        self.msg_info += 1
+        time_msg = self.TIME + ", " +self.file + ", " + str(self.msg_num) +", "
+        system_msg = time_msg
+        system_msg += '[SQL:次のSQL文が実行ファイルにて実行]\n' 
+        system_msg += str(self.err_msg) + "\n"
         with open(self.log_text, mode='a') as f:
             f.write(system_msg)
