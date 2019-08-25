@@ -32,32 +32,32 @@ class LOG:
         os.chdir(os.path.dirname(self.dir))
         self.TIME = datetime.datetime.today().strftime("%H:%M:%S")
         self.msg_num += 1
+        self.msg_chk += 1
         self.err_msg = err_msg
         system_msg = ""
-        time_msg = self.TIME + "," +self.file + "," + str(self.msg_num) +","
+        time_msg = self.TIME + ", " +self.file + ", " + str(self.msg_num) +", "
         if(type==1):
-            self.msg_chk += 1
             system_msg += time_msg
-            system_msg += "[___]," + self.err_msg + "," + str(self.msg_chk) + "\n"
+            system_msg += "[chk-" + str(self.msg_chk) + "], " + self.err_msg + "\n"
         elif(type==2):
-            self.msg_chk += 1
             system_msg += time_msg
-            system_msg += "[chk]," + self.err_msg + "," + str(self.msg_chk) + "\n"
+            system_msg += "[chk-" + str(self.msg_chk) + "], " + self.err_msg + "\n"
         else:
             self.msg_err += 1
             system_msg += time_msg
-            system_msg += "[info],予期せぬエラーが起きている可能性があります。関連箇所を確認して下さい。\n"
+            system_msg += "[info-" + str(self.msg_num) + "] ,予期せぬエラーが起きている可能性があります。関連箇所を確認して下さい。\n"
         with open(self.log_text, mode='a') as f:
             f.write(system_msg)
+
     def err(self, err_msg):
         os.chdir(os.path.dirname(self.dir))
         self.TIME = datetime.datetime.today().strftime("%H:%M:%S")
         self.msg_num += 1
         self.err_msg = err_msg
         self.msg_err += 1
-        time_msg = self.TIME + "," +self.file + "," + str(self.msg_num) +","
+        time_msg = self.TIME + ", " +self.file + ", " + str(self.msg_num) +", "
         system_msg = time_msg
-        system_msg += "[err]," + self.err_msg + "," + str(self.msg_err) + "\n"
+        system_msg += "[err-" + str(self.msg_err) + "]," + self.err_msg + "\n"
         with open(self.log_text, mode='a') as f:
             f.write(system_msg)
 
@@ -67,8 +67,8 @@ class LOG:
         self.msg_num += 1
         self.err_msg = err_msg
         self.msg_info += 1
-        time_msg = self.TIME + "," +self.file + "," + str(self.msg_num) +","
+        time_msg = self.TIME + ", " +self.file + ", " + str(self.msg_num) +", "
         system_msg = time_msg
-        system_msg += "[info]," + self.err_msg + "," + str(self.msg_err) + "\n"
+        system_msg += "[info-" + str(self.msg_err) + "], " + self.err_msg + "\n"
         with open(self.log_text, mode='a') as f:
             f.write(system_msg)
