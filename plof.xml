@@ -25,4 +25,8 @@
     <bot_birth></bot_birth>
     <last_modified></last_modified>
     <Ver>0</Ver>
+    <DB_service>ORACLE</DB_service>
+    <DB_user>DB_BOT</DB_user>
+    <DB_pass>DB_BOT</DB_pass>
+    <master_user>takuya/taku0872</master_user>
   </plof_BOT_data>
