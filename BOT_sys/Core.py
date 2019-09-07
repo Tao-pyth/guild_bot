@@ -2,7 +2,7 @@
 import discord
 
 # 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'NDkzOTk0OTY3MjY2NjIzNDg5.XWDZhw.sJGN-KZ3DNU2F_dKg_Jpw3MnL88'
+TOKEN = '********************************'
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -12,7 +12,7 @@ client = discord.Client()
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
-    CHANNEL_ID = 614709311695880195
+    CHANNEL_ID = ?-----------------?
     channel = client.get_channel(CHANNEL_ID)
     await channel.send("こんにちわ。本日の業務を開始します")
 
